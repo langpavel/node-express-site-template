@@ -13,7 +13,8 @@ if (cluster.isMaster) {
   });
 
 } else {
-  log.info('Worker #'+cluster.worker.id+' PID: '+process.pid+' spawned');
+  log.info('Worker #' + cluster.worker.id +
+           ' PID: ' + process.pid + ' spawned');
 
-  require('./server');    
+  require('./server');
 }

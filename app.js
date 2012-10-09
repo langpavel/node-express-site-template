@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , path = require('path');
-
+var express = require('express');
+var path = require('path');
+var routes = require('./routes');
+var user = require('./routes/user');
 var app = module.exports = express();
 
-app.configure(function(){
+
+app.configure(function() {
   app.set('port', process.env.PORT || 3000);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
@@ -25,7 +25,7 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
