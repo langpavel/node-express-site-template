@@ -1,5 +1,29 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+    //- Main hero unit for a primary marketing message or call to action
+    .hero-unit
+      h1= title
+      p Welcome to #{title}
+      p: a.btn.btn-primary.btn-large Learn more &raquo;
+
+    //- Example row of columns
+    .row
+      .span4
+        h2 Heading
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        p: a.btn(href='#') View details &raquo;
+
+      .span4
+        h2 Heading
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        p: a.btn(href='#') View details &raquo;
+
+      .span4
+        h2 Heading
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        p: a.btn(href='#') View details &raquo;
+
+    footer
+      p &copy; Company 2012
