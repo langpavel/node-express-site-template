@@ -6,6 +6,7 @@
     "test": "make test"
   },
   "dependencies": {
+    "browserify": "~1.16.1",
     "connect-redis": "~1.4.4",
     "debug": "~0.7.0",
     "express": "~3.0.0rc5",
