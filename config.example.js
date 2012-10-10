@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
 
   express: {
-    port: 3000,
+    port: process.env.PORT || 3000,
     views: path.join(__dirname, 'views'),
     'view engine': 'jade'
   },
