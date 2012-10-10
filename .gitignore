@@ -13,7 +13,7 @@ results
 
 node_modules
 npm-debug.log
-public/stylesheets/style.css
+static/css/*.css
 *.pyc
 config*.js
 !config*.example.js

@@ -1,11 +1,14 @@
 
 var path = require('path');
+var PATH = function(p) {
+  return path.resolve(__dirname, p);
+};
 
 module.exports = {
 
   express: {
     port: process.env.PORT || 3000,
-    views: path.join(__dirname, 'views'),
+    views: PATH('views'),
     'view engine': 'jade'
   },
 
@@ -21,7 +24,7 @@ module.exports = {
   },
 
   middleware: {
-    favicon: path.resolve('./public/favicon.ico'),
+    favicon: PATH('static/favicon.ico'),
 
     logger: 'dev',
 
@@ -33,12 +36,13 @@ module.exports = {
 
     session: {
       /*
-      key       cookie name defaulting to connect.sid
-      secret    session cookie is signed with this secret to prevent tampering
-      cookie    session cookie settings, defaulting to
-                { path: '/', httpOnly: true, maxAge: null }
-      proxy     trust the reverse proxy when setting secure cookies
-                (via "x-forwarded-proto")
+       *  key         cookie name defaulting to connect.sid
+       *  secret      session cookie is signed with this secret
+       *              to prevent tampering
+       *  cookie      session cookie settings, defaulting to
+       *              { path: '/', httpOnly: true, maxAge: null }
+       *  proxy       trust the reverse proxy when setting secure cookies
+       *              (via "x-forwarded-proto")
       */
 
       key: 'sid',
@@ -51,9 +55,26 @@ module.exports = {
 
     csrf: {},
 
-    stylus: path.join(__dirname, 'public'),
+    stylus: {
+      /*
+       *  force       Always re-compile
+       *  src         Source directory used to find .styl files
+       *  dest        Destination directory used to output .css files
+       *              when undefined defaults to `src`.
+       *  compile     Custom compile function, accepting the arguments
+       *              `(str, path)`.
+       *  compress    Whether the output .css files should be compressed
+       *  firebug     Emits debug infos in the generated css that can
+       *              be used by the FireStylus Firebug plugin
+       *  linenos     Emits comments in the generated css indicating
+       *              the corresponding stylus line
+       */
+      '@': '/css',
+      src: PATH('client/styles'),
+      dest: PATH('static/css')
+    },
 
-    static: path.join(__dirname, 'public'),
+    static: PATH('static'),
 
     errorHandler: {}
   }

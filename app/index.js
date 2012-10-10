@@ -32,8 +32,11 @@ function load_middleware(name, factory) {
     if (!factory)
       factory = express[name];
 
-    debug('middlaware ' + name + ': loading', conf);
-    app.use(factory(conf));
+    var route = conf['@'] || '/';
+
+    debug('middlaware ' + name + '@' + route + ': loading', conf);
+    app.use(route, factory(conf));
+
     return true;
   } else {
     debug('middlaware ' + name + ': DISABLED');
