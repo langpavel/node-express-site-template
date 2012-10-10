@@ -2,7 +2,7 @@
 BASEPATH=`dirname "$0"`
 FILES=$*
 if [ "$FILES" = "" ]; then
-    FILES=`find -iregex .*\\.js$ | grep -v node_modules`
+    FILES=`find -iregex .*\\.js$ | grep -v node_modules | grep -v .min.js`
 fi
 
 PYTHONPATH=$BASEPATH/tools/closure_linter/ `which python` $BASEPATH/tools/closure_linter/closure_linter/fixjsstyle.py --strict --nojsdoc $FILES

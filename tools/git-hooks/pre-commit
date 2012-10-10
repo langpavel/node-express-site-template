@@ -43,9 +43,9 @@ then
 	exit 1
 fi
 
-LINTFILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep -e \\.js$)
+LINTFILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep -e \\.js$ | grep -v .min.js)
 if [ "$LINTFILES" != "" ]; then
-	./jslint $(git diff --cached --name-only --diff-filter=ACMR $against | grep -e \\.js$)
+	./jslint $LINTFILES
 	exit $?
 fi
 
