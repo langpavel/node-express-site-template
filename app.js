@@ -28,25 +28,25 @@ app.set('port', process.env.PORT || config.http.port || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(express.favicon());
+app.use(express.favicon(config.middleware.favicon));
 
-app.use(express.logger('dev'));
+app.use(express.logger(config.middleware.logger));
 
-app.use(express.bodyParser());
+app.use(express.bodyParser(config.middleware.bodyParser));
 
-app.use(express.methodOverride());
+app.use(express.methodOverride(config.middleware.methodOverride));
 
 // sessions
 app.RedisSessionStore = require('connect-redis')(express);
 config.redisSessionStore.client = app.redisCreateClient();
 app.sessionStore = new app.RedisSessionStore(config.redisSessionStore);
 
-app.use(express.cookieParser('ogXMXgRbnInguKYYx9Pm'));
+app.use(express.cookieParser(config.middleware.cookieParser));
 config.session.store = app.sessionStore;
 app.use(express.session(config.session));
 
-if (config.csrf.enabled) {
-  app.use(express.csrf(config.csrf));
+if (config.middleware.csrf.enabled) {
+  app.use(express.csrf(config.middleware.csrf));
 }
 
 app.use(app.router);

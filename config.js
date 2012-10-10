@@ -1,3 +1,6 @@
+
+var path = require('path');
+
 module.exports = {
 
   http: {
@@ -10,7 +13,7 @@ module.exports = {
   },
 
   redisSessionStore: {
-    ttl: 60 * 60 * 24 * 30, // = 30 days (in seconds)
+    ttl: 60 * 60 * 24 * 60, // = 60 days (in seconds)
     db: 0,
     prefix: 'sess:'
   },
@@ -18,7 +21,6 @@ module.exports = {
   session: {
     /*
     key       cookie name defaulting to connect.sid
-    store     session store instance
     secret    session cookie is signed with this secret to prevent tampering
     cookie    session cookie settings, defaulting to
               { path: '/', httpOnly: true, maxAge: null }
@@ -30,12 +32,24 @@ module.exports = {
     cookie: {
       path: '/',
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 30 // = 30 days (in miliseconds)
+      maxAge: 1000 * 60 * 60 * 24 * 60 // = 60 days (in miliseconds)
     }
   },
 
-  csrf: {
-    enabled: true
+  middleware: {
+    logger: 'dev',
+
+    favicon: path.resolve('./public/favicon.ico'),
+
+    bodyParser: {},
+
+    methodOverride: '_method',
+
+    cookieParser: 'ogXMXgRbnInguKYYx9Pm',
+
+    csrf: {
+      enabled: true
+    }
   }
 
 };
