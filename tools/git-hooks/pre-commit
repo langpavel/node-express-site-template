@@ -25,7 +25,7 @@ if [ "$allownonascii" != "true" ] &&
 	# Note that the use of brackets around a tr range is ok here, (it's
 	# even required, for portability to Solaris 10's /usr/bin/tr), since
 	# the square bracket bytes happen to fall in the designated range.
-	test "$(git diff --cached --name-only --diff-filter=A -z $against |
+	test "$(git diff --cached --name-only --diff-filter=AR -z $against |
 	  LC_ALL=C tr -d '[ -~]\0')"
 then
 	echo "Error: Attempt to add a non-ascii file name."
@@ -43,6 +43,6 @@ then
 	exit 1
 fi
 
-./jslint $(git diff --cached --name-only $against | grep -e \\.js$)
+./jslint $(git diff --cached --name-only --diff-filter=ACMR $against | grep -e \\.js$)
 exit $?
 

@@ -1,0 +1,3 @@
+#!/bin/sh
+DEBUG="* -send -stylus:*" node server.js
+

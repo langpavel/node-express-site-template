@@ -1,6 +1,7 @@
 var cluster = require('cluster');
 var numCPUs = require('os').cpus().length;
-var log = require('./log');
+var pkgname = require('./package').name;
+var debug = require('debug')(pkgname + ':cluster');
 
 if (cluster.isMaster) {
   // Fork workers.
@@ -9,12 +10,12 @@ if (cluster.isMaster) {
   }
 
   cluster.on('exit', function(worker, code, signal) {
-    log.error('worker ' + worker.process.pid + ' died');
+    debug('worker ' + worker.process.pid + ' died');
   });
 
 } else {
-  log.info('Worker #' + cluster.worker.id +
-           ' PID: ' + process.pid + ' spawned');
+  debug('Worker #' + cluster.worker.id +
+        ' PID: ' + process.pid + ' spawned');
 
   require('./server');
 }

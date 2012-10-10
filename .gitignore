@@ -15,3 +15,5 @@ node_modules
 npm-debug.log
 public/stylesheets/style.css
 *.pyc
+config*.js
+!config*.example.js

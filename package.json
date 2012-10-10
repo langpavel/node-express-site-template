@@ -1,16 +1,17 @@
 {
   "name": "express-site-template",
   "version": "0.0.1",
+  "main": "./app/index",
   "scripts": {
-	"test": "make test"
+    "test": "make test"
   },
   "dependencies": {
     "connect-redis": "~1.4.4",
+    "debug": "~0.7.0",
     "express": "~3.0.0rc5",
     "jade": "~0.27.6",
     "mongodb": "~1.1.10",
     "redis": "~0.8.1",
-    "stylus": "~0.29.0",
-    "winston": "~0.6.2"
+    "stylus": "~0.29.0"
   }
 }
