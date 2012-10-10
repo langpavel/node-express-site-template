@@ -17,3 +17,5 @@ static/css/*.css
 *.pyc
 config*.js
 !config*.example.js
+!static/css/bootstrap.css
+!static/css/bootstrap-responsive.css
