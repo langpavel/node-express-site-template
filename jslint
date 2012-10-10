@@ -1,0 +1,9 @@
+#!/bin/sh
+BASEPATH=`dirname "$0"`
+FILES=$*
+if [ "$FILES" = "" ]; then
+	FILES=`find -iregex .*\\.js$ | grep -v node_modules`
+fi
+
+PYTHONPATH=$BASEPATH/tools/closure_linter/ `which python` $BASEPATH/tools/closure_linter/closure_linter/gjslint.py --unix_mode --strict --nojsdoc $FILES
+exit $?
