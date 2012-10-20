@@ -1,0 +1,8 @@
+#!/bin/sh
+cd "`realpath \`dirname "$0"\``"
+mkdir -p ./redis
+REDIS=`which redis-server`
+VERSION=`"$REDIS" --version`
+echo "Using $VERSION"
+
+"$REDIS" `realpath ./redis.conf` $*

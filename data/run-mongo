@@ -1,0 +1,8 @@
+#!/bin/sh
+cd "`realpath \`dirname "$0"\``"
+mkdir -p ./mongo
+MONGOD=`which mongod`
+VERSION=`"$MONGOD" --version`
+echo "Using Mongo $VERSION"
+
+"$MONGOD" -f ./mongo.conf $*
