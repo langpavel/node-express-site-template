@@ -43,6 +43,7 @@ function load_middleware(name, factory) {
   }
 }
 
+load_middleware('responseTime');
 load_middleware('favicon');
 load_middleware('logger');
 load_middleware('bodyParser');

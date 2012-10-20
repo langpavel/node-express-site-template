@@ -24,6 +24,8 @@ module.exports = {
   },
 
   middleware: {
+    responseTime: true,
+
     favicon: PATH('static/favicon.ico'),
 
     logger: 'dev',
