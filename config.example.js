@@ -14,6 +14,7 @@ module.exports = {
 
   redis: {
     host: 'localhost',
+    port: 16379,
     options: {}
   },
 
